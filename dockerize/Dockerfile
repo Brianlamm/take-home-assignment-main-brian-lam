@@ -2,8 +2,8 @@
 
 FROM golang:1.8.5-jessie
 # create a working directory
-WORKDIR /go/dockerize/app
+WORKDIR /go/src/app
 # add source code
-COPY . /dockerize
+COPY . dockerize
 # run main.go
-CMD ["go", "run", "/dockerize/webserver.go"]
+CMD ["go", "run", "dockerize/webserver.go"]
