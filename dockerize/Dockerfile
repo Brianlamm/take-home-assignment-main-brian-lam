@@ -1,8 +1,18 @@
 FROM golang:latest
-ADD . /go/src/github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize
-# Build the contact_registry command inside the container.
-RUN go install github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize@latest
-# Run the contact_registry command when the container starts.
-ENTRYPOINT /go/bin/dockerize
-# http server listens on port 8080.
+# Set the Current Working Directory inside the container
+WORKDIR $GOPATH/src/github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize
+
+# Copy everything from the current directory to the PWD (Present Working Directory) inside the container
+COPY . .
+
+# Download all the dependencies
+RUN go get -d -v ./...
+
+# Install the package
+RUN go install -v ./...
+
+# This container exposes port 8080 to the outside world
 EXPOSE 8080
+
+# Run the executable
+CMD ["dockerize"]
