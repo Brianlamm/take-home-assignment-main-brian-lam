@@ -6,4 +6,4 @@ WORKDIR /go/src/app
 # add source code
 COPY . /src
 # run main.go
-CMD ["go", "run", "src/webserver.go"]
+CMD ["go", "run", "/src/webserver.go"]
