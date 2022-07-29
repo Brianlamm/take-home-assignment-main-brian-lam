@@ -12,7 +12,7 @@ WORKDIR $GOPATH/src/github.com/Brianlamm/take-home-assignment-main-brian-lam/doc
 COPY . .
 
 # Build the golang-docker command inside the container.
-RUN go install github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize
+RUN go install github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize@latest
 
 # Run the golang-docker command when the container starts.
 ENTRYPOINT /go/bin/take-home-assignment-main-brian-lam/dockerize
