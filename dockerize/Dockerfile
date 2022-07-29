@@ -2,13 +2,13 @@
 FROM golang:latest
 
 # Copy the local package files to the container’s workspace.
-ADD . /go/src/github.com/Brianlamm/take-home-assignment-main-brian-lam
+ADD . /go/src/github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize
 
 # Build the golang-docker command inside the container.
-RUN go install github.com/Brianlamm/take-home-assignment-main-brian-lam
+RUN go install github.com/Brianlamm/take-home-assignment-main-brian-lam/dockerize
 
 # Run the golang-docker command when the container starts.
-ENTRYPOINT /go/bin/take-home-assignment-main-brian-lam
+ENTRYPOINT /go/bin/take-home-assignment-main-brian-lam/dockerize
 
 # http server listens on port 8080.
 EXPOSE 8080
